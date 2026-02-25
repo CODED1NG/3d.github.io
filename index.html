@@ -103,6 +103,36 @@
       <span class="blink">—</span>
       If you insist on “help”: try a shift you already know, then try a place where books never expire.
     </footer>
+    <!--
+    ===========================================================
+    REAL CLUE: READ THIS WHOLE COMMENT CAREFULLY.
+    ===========================================================
+  
+    NEXT STEP = "LIBRARY" (but do it online first)
+  
+    1) Go to Project Gutenberg.
+    2) Find the plain-text version of:
+          "The Adventures of Sherlock Holmes" by Arthur Conan Doyle
+          (Make sure it's the *Plain Text UTF-8* file.)
+    3) Use a BOOK CIPHER: line-word (L-W). Count lines in that plain-text file.
+       - Ignore the very top Project Gutenberg header until you reach:
+            "ADVENTURE I. A SCANDAL IN BOHEMIA"
+         Start counting lines from the first line *after* that title line.
+       - Words are separated by spaces. Strip punctuation.
+  
+    4) Decode the following L-W pairs to get the final message:
+  
+          1572-1 8-2 2220-2
+  
+          172-6 172-7 619-6 878-5
+  
+  
+    OPTIONAL CHECK:
+       If you want to sanity-check you're counting lines correctly,
+       line 3 should begin with a common pronoun.
+  
+    ===========================================================
+    -->
   </main>
 
   <script>
@@ -123,37 +153,5 @@
       hintBox.textContent = hints[idx];
     }
   </script>
-
-  <!--
-  ===========================================================
-  REAL CLUE: READ THIS WHOLE COMMENT CAREFULLY.
-  ===========================================================
-
-  NEXT STEP = "LIBRARY" (but do it online first)
-
-  1) Go to Project Gutenberg.
-  2) Find the plain-text version of:
-        "The Adventures of Sherlock Holmes" by Arthur Conan Doyle
-        (Make sure it's the *Plain Text UTF-8* file.)
-  3) Use a BOOK CIPHER: line-word (L-W). Count lines in that plain-text file.
-     - Ignore the very top Project Gutenberg header until you reach:
-          "ADVENTURE I. A SCANDAL IN BOHEMIA"
-       Start counting lines from the first line *after* that title line.
-     - Words are separated by spaces. Strip punctuation.
-
-  4) Decode the following L-W pairs to get the final message:
-
-        1572-1 8-2 2220-2
-
-        172-6 172-7 619-6 878-5
-
-
-  OPTIONAL CHECK:
-     If you want to sanity-check you're counting lines correctly,
-     line 3 should begin with a common pronoun.
-
-  ===========================================================
-  -->
-
 </body>
 </html>
