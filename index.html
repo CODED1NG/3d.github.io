@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nothing to See Here</title>
+  <meta name="description" content="A plain page. Probably a dead end." />
+  <style>
+    :root { color-scheme: dark; }
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background:#0b0f14;
+      color:#d9e1ea;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      letter-spacing: .2px;
+    }
+    .card{
+      width:min(760px, 92vw);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 28px 26px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    h1{
+      margin:0 0 10px 0;
+      font-size: 22px;
+      font-weight: 650;
+    }
+    p{ margin: 10px 0; line-height: 1.55; }
+    .muted{ color: rgba(217,225,234,.72); }
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.08);
+      margin: 18px 0;
+    }
+    .box{
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 14px;
+      overflow:auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .hintrow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    button{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color:#d9e1ea;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover{ background: rgba(255,255,255,.10); }
+    .tiny{ font-size: 12px; }
+    footer{ margin-top: 16px; }
+    a{ color:#9bd1ff; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .blink { opacity: .9; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Dead End.</h1>
+    <p class="muted">
+      If you’re reading this, you either decrypted something… or you got lucky.
+      Either way: there’s nothing here. Probably.
+    </p>
+
+    <div class="divider"></div>
+
+    <p>
+      Some puzzles are loud. This one is quiet.
+      The next step is not in what you <em>see</em> — it’s in what you <em>inspect</em>.
+    </p>
+
+    <div class="box" aria-label="A harmless quote">
+“Truth can be found in unlikely places.”
+    </div>
+
+    <div class="hintrow">
+      <button id="btnHint1" type="button">Hint</button>
+      <button id="btnHint2" type="button">Another Hint</button>
+      <button id="btnHint3" type="button">Last Hint</button>
+    </div>
+
+    <div id="hintBox" class="box" style="display:none;"></div>
+
+    <footer class="muted tiny">
+      <span class="blink">—</span>
+      If you insist on “help”: try a shift you already know, then try a place where books never expire.
+    </footer>
+  </main>
+
+  <script>
+    // Keep it subtle. The real clue is not in the UI.
+    const hints = [
+      "Not every clue is meant to be clicked.",
+      "If a page looks empty, look at how it was made.",
+      "Search the source. Then search a catalog."
+    ];
+    let i = 0;
+    const hintBox = document.getElementById("hintBox");
+    document.getElementById("btnHint1").addEventListener("click", () => showHint(0));
+    document.getElementById("btnHint2").addEventListener("click", () => showHint(1));
+    document.getElementById("btnHint3").addEventListener("click", () => showHint(2));
+
+    function showHint(idx){
+      hintBox.style.display = "block";
+      hintBox.textContent = hints[idx];
+    }
+  </script>
+
+  <!--
+  ===========================================================
+  REAL CLUE: READ THIS WHOLE COMMENT CAREFULLY.
+  ===========================================================
+
+  NEXT STEP = "LIBRARY" (but do it online first)
+
+  1) Go to Project Gutenberg.
+  2) Find the plain-text version of:
+        "The Adventures of Sherlock Holmes" by Arthur Conan Doyle
+        (Make sure it's the *Plain Text UTF-8* file.)
+  3) Use a BOOK CIPHER: line-word (L-W). Count lines in that plain-text file.
+     - Ignore the very top Project Gutenberg header until you reach:
+          "ADVENTURE I. A SCANDAL IN BOHEMIA"
+       Start counting lines from the first line *after* that title line.
+     - Words are separated by spaces. Strip punctuation.
+
+  4) Decode the following L-W pairs to get the final message:
+
+        1572-1 8-2 2220-2
+
+        172-6 172-7 619-6 878-5
+
+
+  OPTIONAL CHECK:
+     If you want to sanity-check you're counting lines correctly,
+     line 3 should begin with a common pronoun.
+
+  ===========================================================
+  -->
+
+</body>
+</html>
